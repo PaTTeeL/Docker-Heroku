@@ -19,9 +19,11 @@
 ## ENV 设定
 
 ### UUID
+`UUID` > `供用户连接时验证身份使用。`
 
-`UUID` > `一个 UUID，供用户连接时验证身份使用`。
+`ALTER_ID` > `额外ID`。
 
+`V2_PATH` > `访问路径`。
 ## 注意
 
 WebSocket 路径为 /。
