@@ -36,7 +36,7 @@ COPY --from=builder /tmp/v2ray.tgz /tmp
 # 增加脚本
 ADD configure.sh /configure.sh
 # 授权脚本权限
-RUN chmod +x /configure.sh && sh /configure.sh
+RUN chmod +x /configure.sh && bash /configure.sh
 # 授予文件权限
 RUN set -ex && \
     apk --no-cache add ca-certificates && \
