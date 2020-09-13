@@ -33,7 +33,10 @@ RUN apk add -U tzdata \
 ENV CONFIG=https://raw.githubusercontent.com/danxiaonuo/v2ray-heroku/master/config.json
 # 拷贝v2ray二进制文件至临时目录
 COPY --from=builder /tmp/v2ray.tgz /tmp
-
+# 增加脚本
+ADD configure.sh /configure.sh
+# 授权脚本权限
+RUN chmod +x /configure.sh
 # 授予文件权限
 RUN set -ex && \
     apk --no-cache add ca-certificates && \
@@ -47,4 +50,4 @@ RUN set -ex && \
 ENV PATH /usr/bin/v2ray:$PATH
 
 # 运行v2ray
-CMD v2ray -config $CONFIG
+CMD ["v2ray", "-config=/etc/v2ray/config.json"]
